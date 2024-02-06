@@ -40,7 +40,7 @@ function initialPrompt() {
 };
 let word = initialPrompt();
 
-console.log(oldScrabbleScorer(word));
+// console.log(oldScrabbleScorer(word));
 
 let simpleScorer = function(word) {
    word = word.toLowerCase();
