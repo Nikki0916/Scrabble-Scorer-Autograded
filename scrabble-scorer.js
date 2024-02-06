@@ -72,16 +72,27 @@ let vowelBonusScorer = function(word) {
    return score
 };
 
-
-let scrabbleScorer = function scrabbleScorer(word, newPointStructure) {
+function scrabbleScorer(word) {
+   word = word.toLowerCase();
    let score = 0;
-   for (let letter of word.toLowerCase()) {
-       if (newPointStructure.hasOwnProperty(letter)) {
-           score += newPointStructure[letter];
-       }
+ 
+   for (let i = 0; i < word.length; i++) {
+     const letter = word[i];
+     score += newPointStructure[letter] || 0;
    }
+ 
    return score;
-};
+ }
+
+// let scrabbleScorer = function scrabbleScorer(word, newPointStructure) {
+//    let score = 0;
+//    for (let letter of word.toLowerCase()) {
+//        if (newPointStructure[letter] !== undefined) {
+//            score += newPointStructure[letter];
+//        }
+//    }
+//    return score;
+// };
 
 const scoringAlgorithms = [
    {
@@ -128,16 +139,20 @@ function scorerPrompt() {
    return scoringAlgorithms[userInput];
 }
 
+
 function transform(oldPointStructure) {
       let newPointStructure = {};
       for (let pointValue in oldPointStructure) {
+         if (oldPointStructure.hasOwnProperty(pointValue)) {
           let letters = oldPointStructure[pointValue];
           for (let  i = 0; i < letters.length; i++) {
              let letter = letters[i].toLowerCase();
-             newPointStructure[letter] = Number(pointValue)
+             newPointStructure[letter] = Number(pointValue);
           }
+         }
       }
       return newPointStructure;
+      
   }
 
 
