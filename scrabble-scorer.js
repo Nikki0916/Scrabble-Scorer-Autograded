@@ -50,6 +50,7 @@ let simpleScorer = function(word) {
    }
    return score
 };
+
  console.log(simpleScorer(word));
 
 let vowelBonusScorer = function(word) {
