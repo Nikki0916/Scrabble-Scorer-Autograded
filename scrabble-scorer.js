@@ -120,7 +120,7 @@ function scorerPrompt() {
    console.log("2 - Scrabble: The traditional scoring algorithm.");
    let userInput = input.question ("Enter the number corresponding to the scoring system you would like to use");
 
-   while(!["0", "1", "2"].includes(userInput)) {
+   while (!["0", "1", "2"].includes(userInput)) {
       console.log("invalid input please enter 0, 1, or 2.");
    userInput = input.question("Enter the number corresponding to the scoring system you would like to use");
    }
@@ -131,8 +131,9 @@ function transform(oldPointStructure) {
       let newPointStructure = {};
       for (let pointValue in oldPointStructure) {
           let letters = oldPointStructure[pointValue];
-          for (let letter of letters) {
-              newPointStructure[letter.toLowerCase()] = Number(pointValue);
+          for (let  i = 0; i < letters.length; i++) {
+             let letter = letters[i].toLowerCase();
+             newPointStructure[letter] = Number(pointValue)
           }
       }
       return newPointStructure;
