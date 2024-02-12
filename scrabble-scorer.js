@@ -139,6 +139,7 @@ const scoringAlgorithms = [
       return scoringAlgorithms[userInput];
    }
    
+   
 
 
 function transform(oldPointStructure) {
