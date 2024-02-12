@@ -125,19 +125,20 @@ const scoringAlgorithms = [
    //    console.log("algorithm name: ", scoringAlgorithms[2].name);
    //    console.log("scoringFunction result: ", scoringAlgorithms[2].scoringFunction("JavaScript"));
 
-function scorerPrompt() {
-   console.log("Which scoring algorithm would you like to use?");
-   console.log("0 - Simple Score: Each letter is worth 1 point.");
-   console.log("1 - Bonus Vowels: Vowels are 3 pts, consonants are 1 pt.");
-   console.log("2 - Scrabble: The traditional scoring algorithm.");
-   let userInput = input.question ("Enter the number corresponding to the scoring system you would like to use");
-
-   while (!["0", "1", "2"].includes(userInput)) {
-      console.log("invalid input please enter 0, 1, or 2.");
-   userInput = input.question("Enter the number corresponding to the scoring system you would like to use");
+   function scorerPrompt() {
+      console.log("Which scoring algorithm would you like to use?");
+      console.log("0 - Simple Score: Each letter is worth 1 point.");
+      console.log("1 - Bonus Vowels: Vowels are 3 pts, consonants are 1 pt.");
+      console.log("2 - Scrabble: The traditional scoring algorithm.");
+      let userInput = input.question ("Enter the number corresponding to the scoring system you would like to use");
+   
+      while (!["0", "1", "2"].includes(userInput)) {
+         console.log("invalid input please enter 0, 1, or 2.");
+         userInput = input.question("Enter the number corresponding to the scoring system you would like to use");
+      }
+      return scoringAlgorithms[userInput];
    }
-   return scoringAlgorithms[userInput];
-}
+   
 
 
 function transform(oldPointStructure) {
