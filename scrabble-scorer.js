@@ -87,15 +87,6 @@ function scrabbleScorer(word) {
    return score;
  }
 
-// let scrabbleScorer = function scrabbleScorer(word, newPointStructure) {
-//    let score = 0;
-//    for (let letter of word.toLowerCase()) {
-//        if (newPointStructure[letter] !== undefined) {
-//            score += newPointStructure[letter];
-//        }
-//    }
-//    return score;
-// };
 
 const scoringAlgorithms = [
    {
